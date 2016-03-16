@@ -1,0 +1,22 @@
+version: '2'
+services:
+  web:
+    build: web
+    volumes:
+      - ../ips:/var/www
+    ports:
+      - "8089:80"
+    links:
+      - mysql
+  datamysql:
+    image: ubuntu:14.04
+    volumes:
+      - ../db:/var/lib/mysql
+  mysql:
+    image: mysql
+    ports:
+      - "3307:3307"
+    volumes_from:
+      - datamysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
