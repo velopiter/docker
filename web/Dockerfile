@@ -12,3 +12,12 @@ RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-di
 RUN docker-php-ext-install -j$(nproc) mysqli
 RUN docker-php-ext-install -j$(nproc) mbstring
 RUN docker-php-ext-install -j$(nproc) zip
+
+RUN a2enmod rewrite
+
+RUN apt-get install -y locales
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+  && echo "ru_RU.UTF-8 UTF-8" >> /etc/locale.gen \
+  && locale-gen
+
+
