@@ -1,0 +1,8 @@
+# password file used when the local exim is authenticating to a remote
+# host as a client.
+#
+# see exim4_passwd_client(5) for more documentation
+#
+# Example:
+### target.mail.server.example:login:password
+mailtrap.io:44704b9910462b0df:0a24401fd45c7e
