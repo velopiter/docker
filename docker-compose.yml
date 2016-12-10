@@ -3,12 +3,14 @@ services:
   web:
     container_name: newvp_web
     build: web
+    restart: always
     cpuset: 0-6
     volumes:
       - ../ips:/var/www
     ports:
       - "8089:80"
-    restart: always
+    extra_hosts:
+     - "mysql:172.18.0.1"
 #    links:
 #      - mysql
 #  mysql:
